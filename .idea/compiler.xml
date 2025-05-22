@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile name="Annotation profile for HelloEvent" enabled="true">
+      <profile name="Annotation profile for BM-backend" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -12,9 +12,13 @@
         <module name="HelloEvent" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="BM-backend" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="BM-backend" options="-parameters" />
       <module name="HelloEvent" options="-parameters" />
     </option>
   </component>
