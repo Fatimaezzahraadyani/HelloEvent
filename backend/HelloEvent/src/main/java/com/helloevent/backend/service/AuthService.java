@@ -20,12 +20,17 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final UserRepository userRepository;
     private final JwtService jwtService;
+    private final PasswordEncoder passwordEncoder;
 
 
-    public AuthService(AuthenticationManager authenticationManager, UserRepository userRepository, JwtService jwtService) {
+    public AuthService(AuthenticationManager authenticationManager,
+                       UserRepository userRepository,
+                       JwtService jwtService,
+                       PasswordEncoder passwordEncoder) {
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
         this.jwtService = jwtService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public String login(AuthRequest request) {
