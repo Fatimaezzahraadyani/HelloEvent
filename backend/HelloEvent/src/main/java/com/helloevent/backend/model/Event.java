@@ -2,6 +2,8 @@ package com.helloevent.backend.model;
 
 
 import jakarta.persistence.*;
+import lombok.NonNull;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.Date;
 import java.util.List;
@@ -26,6 +28,7 @@ public class Event {
     @Column(name = "lieu",nullable = false)
     private String lieu;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Status status;
@@ -84,5 +87,19 @@ public class Event {
         this.lieu = lieu;
     }
 
+    public Status getStatus() {
+        return status;
+    }
 
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
