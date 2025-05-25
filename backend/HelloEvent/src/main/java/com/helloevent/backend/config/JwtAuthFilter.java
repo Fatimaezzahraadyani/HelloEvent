@@ -21,7 +21,6 @@ import java.io.IOException;
 
 
 @Component
- //create a constructor using any final field
 public class JwtAuthFilter extends OncePerRequestFilter {
 
 

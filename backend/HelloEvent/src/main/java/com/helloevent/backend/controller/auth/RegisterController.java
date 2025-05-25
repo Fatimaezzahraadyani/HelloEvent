@@ -3,6 +3,7 @@ package com.helloevent.backend.controller.auth;
 
 import com.helloevent.backend.dto.AuthResponse;
 import com.helloevent.backend.dto.RegisterRequest;
+import com.helloevent.backend.service.AuthService;
 import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,13 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/auth")
 public class RegisterController {
 
-    @PostMapping("/register")
-    public ResponseEntity<AuthResponse> register(
-            @RequestBody RegisterRequest request
-    ){
-        //
-        return null;
+    private final AuthService authService;
+
+    public RegisterController(AuthService authService) {
+        this.authService = authService;
     }
+
+
+
 
 
 

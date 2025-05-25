@@ -59,5 +59,11 @@ public class RegisterRequest {
                 + ", password=" + password + "]";
 
     }
+
+    public Object getRole() {
+        return "ADMIN";
+    }
+
+
 }
 

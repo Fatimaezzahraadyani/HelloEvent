@@ -2,11 +2,14 @@ package com.helloevent.backend.service;
 
 
 import com.helloevent.backend.dto.AuthRequest;
+import com.helloevent.backend.dto.AuthResponse;
+import com.helloevent.backend.dto.RegisterRequest;
 import com.helloevent.backend.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -49,4 +52,6 @@ public class AuthService {
             throw new RuntimeException("Identifiants invalides");
         }
     }
+
+
 }

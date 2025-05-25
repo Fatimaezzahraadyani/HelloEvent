@@ -55,7 +55,46 @@ public class EventController {
         eventService.saveEvent(event);
 
         return ResponseEntity.ok("Événement créé avec succès");
+    }
 
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Event> getEventById(@PathVariable long id) {
+        Event event = eventService.getEventById(id);
+        if (event!=null) {
+            return ResponseEntity.ok(event);
+        }else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateEvent(@PathVariable long id, @RequestBody EventRequest eventRequest) {
+        User user = userRepository.findById(id).orElse(null);
+        Category category = categoryRepository.findById(eventRequest.getCategoryId()).orElse(null);
+
+        if (user==null || category==null){
+            return ResponseEntity.badRequest().body("User ou Category introuvable");
+        }
+
+        Event updatedEvent = eventService.updateEvent(id, eventRequest, user, category);
+        if (updatedEvent!=null) {
+            return ResponseEntity.ok(updatedEvent);
+        }else {
+            return ResponseEntity.notFound().build();
+        }
 
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteEvent(@PathVariable long id) {
+        boolean deleted = eventService.deleteEvent(id);
+
+        if (deleted) {
+            return ResponseEntity.ok("event deleted");
+        }else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
