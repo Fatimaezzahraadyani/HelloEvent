@@ -29,7 +29,7 @@ public class SecurityConfiguration {
                 .csrf(csrf -> csrf.disable()) //Désactive la protection CSRF
                 .authorizeHttpRequests(auth->auth
                         .requestMatchers("/api/v1/auth/**").permitAll()
-                        .requestMatchers("/api/v1/events/**").hasRole("ADMIN")
+                     //   .requestMatchers("/api/v1/events/**").permitAll()
                         .anyRequest().authenticated()
                 )
 

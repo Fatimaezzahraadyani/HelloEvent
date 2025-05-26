@@ -43,7 +43,6 @@ public class AuthService {
                             request.getEmail(),
                             request.getPassword()
                     )
-
             );
 
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -52,6 +51,11 @@ public class AuthService {
             throw new RuntimeException("Identifiants invalides");
         }
     }
+
+
+
+
+
 
 
 }

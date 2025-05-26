@@ -41,6 +41,10 @@ public class User implements UserDetails {
 
     public User() {}
 
+    public static Object builder() {
+        return new User();
+    }
+
     public int getId() {
         return id;
     }
