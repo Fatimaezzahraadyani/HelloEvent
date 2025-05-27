@@ -2,6 +2,7 @@ package com.helloevent.backend.repository;
 
 import com.helloevent.backend.model.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,4 +13,9 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     List<Event> findEventsByName(String name);
 
     Event getEventById(long id);
+
+  @Query("select ")
+    Event getEventByReservations(int nbr);
+
+
 }

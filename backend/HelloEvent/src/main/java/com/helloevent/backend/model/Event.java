@@ -5,8 +5,10 @@ import jakarta.persistence.*;
 import lombok.NonNull;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @Entity
 @Table(name = "events")

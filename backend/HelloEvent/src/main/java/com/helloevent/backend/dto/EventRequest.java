@@ -70,4 +70,17 @@ public class EventRequest {
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
+
+    @Override
+    public String toString() {
+        return "EventRequest{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", date=" + date +
+                ", lieu='" + lieu + '\'' +
+                ", status=" + status +
+                ", userId=" + userId +
+                ", categoryId=" + categoryId +
+                '}';
+    }
 }
