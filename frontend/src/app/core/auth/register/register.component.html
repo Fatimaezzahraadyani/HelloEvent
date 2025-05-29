@@ -1,27 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Form</title>
+  <style>
+    body {
+      background-color: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .register-container {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    .form-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+    }
+    .form-group {
+      position: relative;
+      margin-bottom: 1.25rem;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.375rem;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus {
+      border-color: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+    .form-group label {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      font-size: 1rem;
+      color: #6b7280;
+      transition: all 0.2s;
+      pointer-events: none;
+    }
+    .form-group input:focus + label,
+    .form-group input:not(:placeholder-shown) + label {
+      top: -0.75rem;
+      left: 0.5rem;
+      font-size: 0.75rem;
+      color: #10b981;
+      background-color: #ffffff;
+      padding: 0 0.25rem;
+    }
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #10b981;
+      color: #ffffff;
+      border: none;
+      border-radius: 0.375rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #059669;
+    }
+  </style>
+</head>
+<body>
 <div class="register-container">
-  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
-    <mat-form-field appearance="fill">
-      <mat-label>Prénom</mat-label>
-      <input matInput formControlName="firstName" required />
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Nom</mat-label>
-      <input matInput formControlName="lastName" required />
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput formControlName="email" required type="email" />
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Mot de passe</mat-label>
-      <input matInput formControlName="password" required type="password" />
-    </mat-form-field>
-
-
-
-    <button mat-raised-button color="primary" type="submit">S'inscrire</button>
+  <h2 class="form-title">Sign Up</h2>
+  <form action="/submit" method="POST">
+    <div class="form-group">
+      <input
+        id="firstName"
+        name="firstName"
+        type="text"
+        placeholder="First Name"
+        required
+      />
+      <label for="firstName">First Name</label>
+    </div>
+    <div class="form-group">
+      <input
+        id="lastName"
+        name="lastName"
+        type="text"
+        placeholder="Last Name"
+        required
+      />
+      <label for="lastName">Last Name</label>
+    </div>
+    <div class="form-group">
+      <input
+        id="email"
+        name="email"
+        type="email"
+        placeholder="Email"
+        required
+      />
+      <label for="email">Email</label>
+    </div>
+    <div class="form-group">
+      <input
+        id="password"
+        name="password"
+        type="password"
+        placeholder="Password"
+        required
+      />
+      <label for="password">Password</label>
+    </div>
+    <button type="submit">Register</button>
   </form>
 </div>
+</body>
+</html>

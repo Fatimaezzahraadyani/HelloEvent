@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
-import {Form, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {Form, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
-import {MatFormField} from '@angular/material/input';
+import {MatFormField, MatInputModule} from '@angular/material/input';
 import {Role} from '../../model/role.enum';
 import {RegisterRequest} from '../../model/user.model';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {CommonModule} from '@angular/common';
+import {MatCard} from '@angular/material/card';
+import {MatButton} from '@angular/material/button';
 
 
 
@@ -14,8 +18,13 @@ import {RegisterRequest} from '../../model/user.model';
   selector: 'app-register',
   standalone : true,
   imports: [
-    MatFormField,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+
+    MatButton
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
@@ -31,11 +40,10 @@ export class RegisterComponent {
   ) {
 
     this.registerForm = this.fb.group({
-      firstname : ['',Validators.required],
-      lastname : ['',Validators.required],
+      firstName : ['',Validators.required],
+      lastName : ['',Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['',Validators.required],
-      role:['CLIENT']
+      password: ['',Validators.required]
     })
   }
 

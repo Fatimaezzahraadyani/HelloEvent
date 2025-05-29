@@ -3,11 +3,15 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 interface RegisterRequest{
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
-  role?:['CLIENT'] ;
+}
+
+interface AuthRequest{
+  email: string;
+  password: string;
 }
 
 export interface AuthResponse{
@@ -24,11 +28,12 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   register(data: RegisterRequest) : Observable<AuthResponse>{
+    console.log(data)
     return this.http.post<AuthResponse>(`${this.apiUrl}/register`, data);
 
   }
 
-  login(data:{email:string;password:string}): Observable<AuthResponse>{
+  login(data:AuthRequest): Observable<AuthResponse>{
     return this.http.post<AuthResponse>(`${this.apiUrl}/authenticate`, data);
   }
 

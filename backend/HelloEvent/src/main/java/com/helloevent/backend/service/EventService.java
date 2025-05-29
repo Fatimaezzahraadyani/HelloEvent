@@ -55,7 +55,7 @@ public class EventService {
 
         Category category = categoryService.getCategoryById(eventRequest.getCategoryId());
 
-        if (user.getRole() == Role.Admin){
+        if (user.getRole() == Role.ADMIN){
             Event event = new Event();
 
             event.setName(eventRequest.getName());

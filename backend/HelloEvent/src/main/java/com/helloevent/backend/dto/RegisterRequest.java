@@ -1,6 +1,7 @@
 package com.helloevent.backend.dto;
 
 
+import com.helloevent.backend.model.Role;
 
 public class RegisterRequest {
 
@@ -8,6 +9,7 @@ public class RegisterRequest {
     private String lastName;
     private String email;
     private String password;
+    private Role role;
 
     public RegisterRequest() {}
 
@@ -60,8 +62,12 @@ public class RegisterRequest {
 
     }
 
-    public Object getRole() {
-        return "ADMIN";
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
 

@@ -2,6 +2,7 @@ package com.helloevent.backend.model;
 
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -41,9 +42,15 @@ public class User implements UserDetails {
 
     public User() {}
 
-    public static Object builder() {
-        return new User();
+
+    public User(String firstName, String lastName, String email, String password, Role role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.role = role;
     }
+
 
     public int getId() {
         return id;
@@ -58,6 +65,7 @@ public class User implements UserDetails {
     }
 
     public void setFirstName(String firstName) {
+
         this.firstName = firstName;
     }
 
@@ -119,4 +127,9 @@ public class User implements UserDetails {
     public Role getRole() {
         return role;
     }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
 }

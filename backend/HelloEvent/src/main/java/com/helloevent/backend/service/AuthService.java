@@ -4,6 +4,7 @@ package com.helloevent.backend.service;
 import com.helloevent.backend.dto.AuthRequest;
 import com.helloevent.backend.dto.AuthResponse;
 import com.helloevent.backend.dto.RegisterRequest;
+import com.helloevent.backend.model.Role;
 import com.helloevent.backend.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

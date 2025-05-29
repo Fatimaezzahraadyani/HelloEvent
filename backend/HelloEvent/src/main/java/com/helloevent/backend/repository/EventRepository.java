@@ -14,8 +14,5 @@ public interface EventRepository extends JpaRepository<Event, Long> {
 
     Event getEventById(long id);
 
-  @Query("select ")
-    Event getEventByReservations(int nbr);
-
 
 }
