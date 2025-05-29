@@ -1,0 +1,27 @@
+<div class="register-container">
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Prénom</mat-label>
+      <input matInput formControlName="firstName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="lastName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required type="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Mot de passe</mat-label>
+      <input matInput formControlName="password" required type="password" />
+    </mat-form-field>
+
+
+
+    <button mat-raised-button color="primary" type="submit">S'inscrire</button>
+  </form>
+</div>
